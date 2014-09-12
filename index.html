@@ -30,16 +30,6 @@
         overflow: hidden;
       }
 
-
-      h1 span {
-        -webkit-mask-image: radial-gradient(at 50% 50%, rgb(0, 0, 0) 100%, rgb(0, 0, 0) 0%);
-        display: block;
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-
-      }
-
       h1:after {
         -webkit-mask-image: radial-gradient(at 50% 50%, rgba(0, 0, 0, 0) 50%, rgb(0, 0, 0) 100%);
         -webkit-filter: blur(5px);
@@ -70,6 +60,10 @@
         -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 80%, rgba(0,0,0,0.01) 90%);
       }
 
+      .block {
+        animation: blink 1s linear 0s infinite;
+        font-size: 90%;
+      }
 
       @keyframes twitch {
         0% {
@@ -100,11 +94,23 @@
           top: 105%;
         }
       }
+
+      @keyframes blink {
+        0% {
+          opacity: 0;
+        }
+        40% {
+          opacity: 0;
+        }
+        50% {
+          opacity: .5;
+        }
+      }
     </style>
   </head>
   <body>
     <h1 id='WAT' data-text="WAT ">
-      <span id='WAT-THE-SHADOW'>WAT </span>
+      <span id='WAT-THE-SHADOW'>WAT </span> <span class='block'>&#9612;</span>
     </h1>
 
     <hr class='scanline' />
