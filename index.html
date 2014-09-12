@@ -3,6 +3,12 @@
   <head>
     <title>WAT WAT WAT</title>
     <style>
+      body, html {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
       body {
         background: #000;
         color: #fff;
@@ -19,31 +25,55 @@
         animation: twitch .075s linear 0s infinite alternate;
       }
 
+
+      h1 span {
+        width: 100px;
+      }
+
+      h1:after {
+        /*-webkit-mask-image: -webkit-linear-gradient(top left, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 200px);*/
+        -webkit-mask-image: radial-gradient(at 50% 50%, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+        -webkit-filter: blur(2px);
+        height: 100%;
+        width: 100%;
+        content: attr(data-text);
+        overflow: hidden;
+      }
+
+      h1,  h1:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
       @keyframes twitch {
         0% {
-        text-shadow: -.033em 0 .025em rgba(255, 0, 0, 1),
-                      .05em 0 .033em rgba(0, 0, 255, 1);
+          text-shadow: -.033em 0 .025em rgba(255, 0, 0, 1),
+                        .05em 0 .033em rgba(0, 0, 255, 1);
         }
 
         50% {
-        text-shadow: -.033em 0 .025em rgba(255, 0, 0, 1),
-                      .03em 0 .033em rgba(0, 0, 255, 1);
+          text-shadow: -.033em 0 .025em rgba(255, 0, 0, 1),
+                        .03em 0 .033em rgba(0, 0, 255, 1);
         }
 
         100% {
-        text-shadow: -.04em 0 .025em rgba(255, 0, 0, 1),
-                      .04em 0 .033em rgba(0, 0, 255, 1);
+          text-shadow: -.04em 0 .025em rgba(255, 0, 0, 1),
+                        .04em 0 .033em rgba(0, 0, 255, 1);
         }
       }
     </style>
   </head>
   <body>
-    <h1 id='WAT'>WAT WAT WAT </h1>
+    <h1 id='WAT' data-text="WAT ">
+      <span id='WAT-THE-SHADOW'>WAT </span>
+    </h1>
 
     <script>
       var index = 0;
       var sequence = 'WAT ';
       var wat = document.getElementById('WAT');
+      var shadow = document.getElementById('WAT-THE-SHADOW');
 
       var map = {
         32: ' ',
@@ -54,10 +84,27 @@
 
       window.onkeydown = function(e) {
         var key = map[e.which];
+        var str = shadow.innerHTML;
 
         if (key == sequence[index]) {
-          wat.innerHTML = wat.innerHTML + key;
+          str = str + key;
+          shadow.innerHTML = str;
+          wat.dataset.text = str;
           index = (index + 1) % sequence.length;
+        } else if (e.which == 8) {
+          e.preventDefault();
+
+          if(str == '') {
+            index = 0;
+            return;
+          }
+
+          str = str.substr(-(str.length), str.length-1);
+          shadow.innerHTML = str;
+          wat.dataset.text = str;
+          index = (index - 1) % sequence.length;
+
+          if(index == -1){ index = sequence.length - 1 }
         }
       }
     </script>
