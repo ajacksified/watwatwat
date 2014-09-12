@@ -10,7 +10,7 @@
         padding: 0;
       }
       body {
-        background: #000;
+        background: rgb(0,20,0);
         color: #fff;
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       }
@@ -20,7 +20,8 @@
         padding: 0;
         font-size: 120px;
         text-shadow: -.033em 0 .025em rgba(255, 0, 0, 1),
-                      .05em 0 .033em rgba(0, 0, 255, 1);
+                      .05em 0 .033em rgba(0, 0, 255, 1),
+                      .0 .025em .005em rgba(0, 255, 0, 1);
 
         animation: twitch .075s linear 0s infinite alternate;
       }
@@ -49,17 +50,20 @@
       @keyframes twitch {
         0% {
           text-shadow: -.033em 0 .025em rgba(255, 0, 0, 1),
-                        .05em 0 .033em rgba(0, 0, 255, 1);
+                        .05em 0 .033em rgba(0, 0, 255, 1),
+                        0 .015em .005em rgba(0, 255, 0, 1);
         }
 
         50% {
           text-shadow: -.033em 0 .025em rgba(255, 0, 0, 1),
-                        .03em 0 .033em rgba(0, 0, 255, 1);
+                        .03em 0 .033em rgba(0, 0, 255, 1),
+                        0 .015em .005em rgba(0, 255, 0, 1);
         }
 
         100% {
           text-shadow: -.04em 0 .025em rgba(255, 0, 0, 1),
-                        .04em 0 .033em rgba(0, 0, 255, 1);
+                        .04em 0 .033em rgba(0, 0, 255, 1),
+                        0 .015em .005em rgba(0, 255, 0, 1);
         }
       }
     </style>
