@@ -66,6 +66,19 @@ h1,  h1:after {
   font-size: 90%;
 }
 
+.grid {
+  background-image: 
+    linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, .25) 25%, rgba(0, 0, 0, .25) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, .25) 75%, rgba(0, 0, 0, .25) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, .25) 25%, rgba(0, 0, 0, .25) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, .25) 75%, rgba(0, 0, 0, .25) 76%, transparent 77%, transparent);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: 5px 5px;
+  z-index: 1;
+}
+
 @-webkit-keyframes twitch {
   0% {
     text-shadow: -.033em 0 .018em rgba(255, 0, 0, 1),
@@ -149,3 +162,4 @@ h1,  h1:after {
     opacity: .5;
   }
 }
+
